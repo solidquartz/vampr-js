@@ -42,17 +42,35 @@ class Vampire {
     return false;
   }
 
-  /** Stretch **/
+  /** Tree traversal methods **/
 
-  // Returns the closest common ancestor of two vampires.
-  // The closest common anscestor should be the more senior vampire if a direct ancestor is used.
-  // For example:
-  // * when comparing Ansel and Sarah, Ansel is the closest common anscestor.
-  // * when comparing Ansel and Andrew, Ansel is the closest common anscestor.
-  closestCommonAncestor(vampire) {
+  // Returns the vampire object with that name, or null if no vampire exists with that name
+  vampireWithName(name) {
+    let vampiresWithName = [];
+
+    const depthFirstTraversal = () => {
+      
+      if (this.name === name) {
+        vampiresWithName.push(this.name);
+
+        for (const vampire of this.name) {
+          vampire.depthFirstTraversal();
+        }
+      }
+    }
+  };
+
+  // Returns the total number of vampires that exist
+  get totalDescendents() {
 
   }
-}
+
+  // Returns an array of all the vampires that were converted after 1980
+  get allMillennialVampires() {
+
+  }
+
+
 
 module.exports = Vampire;
 
